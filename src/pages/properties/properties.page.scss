@@ -1,0 +1,17 @@
+as-page-properties {
+  .as-title-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .as-image {
+    position:relative;
+  }
+
+  .as-badge {
+    position:absolute;
+    bottom: 8px;
+    right: 8px;
+  }
+}

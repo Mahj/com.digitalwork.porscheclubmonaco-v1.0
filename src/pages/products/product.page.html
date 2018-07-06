@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{item.title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div>
+		<ion-slides pager>
+			<ion-slide *ngFor="let picture of item.pictures">
+				<img src="{{picture.url}}"/>
+			</ion-slide>
+		</ion-slides>
+	</div>
+	<div padding>
+		<h3>{{item.title}}</h3>
+		<h6>{{item.price | currency:'USD':true}}</h6>
+		<p>{{item.body}}</p>
+		<button ion-button block icon-left (click)="openUrl()">
+			Buy online
+		</button>
+	</div>
+</ion-content>

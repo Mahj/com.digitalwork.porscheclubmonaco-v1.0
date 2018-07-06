@@ -1,0 +1,33 @@
+<ion-header>
+	<ion-navbar>
+		 <button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Activity feed</ion-title>
+
+		<ion-buttons end>
+			<button ion-button icon-only [disabled]="!message.value" (click)="send(message.value); message.value = '';" *ngIf="auth.authenticated">
+				<ion-icon name="send"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list text-wrap>
+		<ion-item [hidden]="!auth.authenticated">
+			<ion-textarea placeholder="Enter your message" rows="4" #message></ion-textarea>
+		</ion-item>
+		<ion-item *ngIf="!auth.authenticated" style="height: 100px; text-align: center;">
+			<h5>Please, log in to post a message</h5>
+		</ion-item>
+		<ion-item *ngFor="let item of items$ | async | orderBy: 'date' : true" (click)="itemTapped(item)">
+			<h2>{{item.title}}</h2>
+			<p>{{ item.body | truncate : 100}}</p>
+			<p class="as-post-meta">
+				<ion-icon name="person"></ion-icon> {{item.posted_by}}
+				<ion-icon name="time"></ion-icon> {{item.date | date: 'short'}}
+			</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

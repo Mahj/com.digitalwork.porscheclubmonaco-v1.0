@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{item.title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div>
+		<ion-slides pager>
+			<ion-slide *ngFor="let picture of item.pictures">
+				<img src="{{picture.url}}"/>
+			</ion-slide>
+		</ion-slides>
+	</div>
+
+	<div padding-horizontal>
+		<h3>{{item.title}}</h3>
+		<p class="padding-vertical">{{item.body}}</p>
+	</div>
+
+	<ion-list *ngIf="hasStandardOptions">
+		<ion-list-header>Standard Options</ion-list-header>
+		<ion-item *ngFor="let option of item.standardOptions">
+			<ion-label>	{{option.name}}</ion-label>
+			<ion-toggle [(ngModel)]="option.selected"></ion-toggle>
+		</ion-item>
+	</ion-list>
+
+	<ion-list *ngIf="hasExtraOptions">
+		<ion-list-header>Extras</ion-list-header>
+		<ion-item *ngFor="let option of item.extraOptions">
+			<ion-label>	{{option.name}}: {{option.value | currency:'USD':true}}</ion-label>
+			<ion-toggle [(ngModel)]="option.selected"></ion-toggle>
+		</ion-item>
+	</ion-list>
+
+	<ion-list radio-group [(ngModel)]="selectedPrice">
+		<ion-list-header>
+    	Sizes
+  	</ion-list-header>
+		<ion-item *ngFor="let price of item.price">
+			<ion-label>{{price.name}}: {{price.value | currency:'USD':true}}</ion-label>
+			<ion-radio [value]="price" checked></ion-radio>
+		</ion-item>
+	</ion-list>
+
+	<div padding-horizontal>
+		<button ion-button block icon-left (click)="showAlert(item.title)">
+			<ion-icon name="cart"></ion-icon>
+			Add to cart
+		</button>
+	</div>
+
+</ion-content>

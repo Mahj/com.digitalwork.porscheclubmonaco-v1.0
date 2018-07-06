@@ -1,0 +1,16 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{item.title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="news-item" padding>
+		<h1>{{item.title}}</h1>
+		<ion-note>
+			<ion-icon name="person"></ion-icon> {{item.posted_by}}
+			<ion-icon name="time"></ion-icon> {{item.date | date: 'short'}}
+		</ion-note>
+		<p>{{item.body}}</p>
+	</div>
+</ion-content>

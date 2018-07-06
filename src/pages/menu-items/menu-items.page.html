@@ -1,0 +1,14 @@
+<ion-header>
+	<ion-navbar>
+		 <button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Food Menu</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<tiles *ngIf="!!(items$ | async)"
+		[items]="(items$ | async)"
+		(itemTapped)="itemTapped($event)"></tiles>
+</ion-content>

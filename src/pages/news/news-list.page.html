@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar>
+		 <button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>News</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list text-wrap>
+		<ion-item *ngFor="let item of items$ | async | orderBy: 'postedAt' : true" (click)="itemTapped(item)">
+			<ion-thumbnail item-left *ngIf="item.thumb && item.thumb[0]">
+				<img src={{item.thumb[0].url}}/>
+			</ion-thumbnail>
+			<h2>{{ item.title }}</h2>
+			<p class="as-post-meta">
+				{{ item.postedAt | date:'short'}}
+			</p>
+			<p>{{ item.body | truncate : 70}}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

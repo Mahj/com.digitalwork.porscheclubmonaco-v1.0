@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{item.title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div>
+		<ion-slides pager>
+			<ion-slide *ngFor="let picture of item.pictures">
+				<img src="{{picture.url}}"/>
+			</ion-slide>
+		</ion-slides>
+	</div>
+	<div padding>
+		<h3>{{item.title}}</h3>
+		<p>{{item.body}}</p>
+	</div>
+	<ion-card>
+		<ion-list>
+			<button ion-item (click)="openUrl()">
+				<ion-icon name="information-circle" item-left></ion-icon> Buy online
+			</button>
+			<button ion-item (click)="openPdf()">
+				<ion-icon name="document" item-left></ion-icon> Open PDF
+			</button>
+		</ion-list>
+	</ion-card>
+</ion-content>

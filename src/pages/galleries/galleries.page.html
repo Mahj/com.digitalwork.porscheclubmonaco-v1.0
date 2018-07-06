@@ -1,0 +1,20 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Galleries</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let item of items$ | async" (click)="itemTapped(item)">
+		<div *ngIf="!!item.picture">
+			<img src="{{item.picture[0].url}}">
+		</div>
+		<ion-card-content>
+			<h2>{{item.title}}</h2>
+			<p>{{item.body}}</p>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

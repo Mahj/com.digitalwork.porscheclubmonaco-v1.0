@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		 <button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Real Estate</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col no-padding col-12 col-md-6 *ngFor="let item of items$ | async">
+      <ion-card (click)="itemTapped(item)">
+				<div class="as-image">
+					<ion-badge class="as-badge">{{item.intention}}</ion-badge>
+					<div *ngIf="!!item.thumbnail">
+						<img src={{item.thumbnail[0].url}}/>
+					</div>
+				</div>
+				<ion-card-content text-center>
+					<ion-card-title class="as-title-truncate">
+						{{item.title}}
+					</ion-card-title>
+					<ion-grid>
+						<ion-row>
+							<ion-col width-33>
+								{{item.category}}
+							</ion-col>
+							<ion-col width-33>
+								{{item.surface}} ft&#xB2;
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-card-content>
+				<button ion-button full no-margin>View Property</button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
