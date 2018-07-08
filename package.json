@@ -31,7 +31,7 @@
     "@ultimate/ngxerrors": "^1.4.0",
     "angularfire2": "^4.0.0-rc0",
     "cordova-hot-code-push-plugin": "^1.5.3",
-    "cordova-ios": "4.5.4",
+    "cordova-ios": "4.5.0",
     "cordova-plugin-browsertab": "^0.2.0",
     "cordova-plugin-buildinfo": "^2.0.1",
     "cordova-plugin-compat": "^1.2.0",
