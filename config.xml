@@ -52,5 +52,5 @@
         <variable name="URL_SCHEME" value="io.appseed.ionictoolkitfirebase" />
     </plugin>
     <plugin name="cordova-hot-code-push-plugin" spec="^1.5.3" />
-    <engine name="ios" spec="4.5.4" />
+    <engine name="ios" spec="4.5.0" />
 </widget>
